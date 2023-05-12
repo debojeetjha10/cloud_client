@@ -1,0 +1,11 @@
+.login {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.create-user * {
+   margin: 10px 10px 10px 10px;
+}

@@ -1,0 +1,11 @@
+.otp {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.otp * {
+   margin: 10px 10px 10px 10px;
+}
