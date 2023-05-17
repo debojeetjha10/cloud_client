@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./styles.css";
+import QRCode from "react-qr-code";
 import { axiosInstance } from "../../helpers/custom_axios";
 
 function CreateUser() {
@@ -7,6 +8,7 @@ function CreateUser() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState(null);
+  const [key, setKey] = useState(null);
   const createUser = async () => {
     try {
       setLoading(true);
@@ -16,6 +18,7 @@ function CreateUser() {
       });
       console.log(res);
       setMsg(res.statusText);
+      setKey(res.data.key);
       setLoading(false);
     } catch (err) {
       setMsg(err.message);
@@ -26,6 +29,7 @@ function CreateUser() {
       <h1>REGISTER</h1>
       {loading && <p>Loading....</p>}
       {msg && <p>{msg}</p>}
+      {msg==='Created' && <QRCode value={key} />}
       <input
         type="text"
         placeholder="ID"
